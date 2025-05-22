@@ -4,8 +4,13 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@/components/analytics"
 import { ModeToggle } from "@/components/mode-toggle"
-
-const inter = Inter({ subsets: ["latin"] })
+import ParticleBackground from "@/components/ParticleBackground"
+import Navbar from "@/components/navbar"
+import ClickEffect from '@/components/ClickEffect'
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -18,22 +23,31 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+      </head>
       <body
-        className={`antialiased min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className}`}
+        className={`antialiased min-h-screen ${inter.variable} font-sans text-slate-900 dark:text-slate-50`}
       >
+        <div className="fixed inset-0 -z-20 bg-grid" />
+
+        {/* <ParticleBackground /> */}
+        <ClickEffect />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="max-w-2xl mx-auto py-10 px-4">
-            <header>
-              <div className="flex items-center justify-between">
-                <ModeToggle />
-                <nav className="ml-auto text-sm font-medium space-x-6">
-                  <Link href="/">Home</Link>
-                  <Link href="/about">About</Link>
-                </nav>
+          <div className="relative flex flex-col items-center px-4 min-h-screen">
+            <div className="w-full max-w-6xl bg-white dark:bg-slate-900/70 rounded-2xl shadow-xl ring-1 ring-black/5 backdrop-blur-lg p-6 md:p-8 z-10 min-h-screen flex flex-col">
+              <div className="flex items-center justify-between mb-6">
+              <div className="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+                Blogify
               </div>
-            </header>
-            <main>{children}</main>
+              <div className="mx-auto">
+                <Navbar />
+                </div>
+                <ModeToggle />
+              </div>
+              <main className="flex-1">{children}</main>
+            </div>
           </div>
           <Analytics />
         </ThemeProvider>

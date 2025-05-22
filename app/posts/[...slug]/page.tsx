@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation"
 import { allPosts } from "contentlayer/generated"
-
+import Link from "next/link"
 import { Metadata } from "next"
 import { Mdx } from "@/components/mdx-components"
 
@@ -15,7 +15,7 @@ async function getPostFromParams(params: PostProps["params"]) {
   const post = allPosts.find((post) => post.slugAsParams === slug)
 
   if (!post) {
-    null
+    return null
   }
 
   return post
@@ -50,15 +50,30 @@ export default async function PostPage({ params }: PostProps) {
   }
 
   return (
-    <article className="py-6 prose dark:prose-invert">
-      <h1 className="mb-2">{post.title}</h1>
-      {post.description && (
-        <p className="text-xl mt-0 text-slate-700 dark:text-slate-200">
-          {post.description}
-        </p>
-      )}
-      <hr className="my-4" />
-      <Mdx code={post.body.code} />
-    </article>
+    <main className="flex px-4 pt-6 pb-20 max-w-7xl mx-auto">
+        {/* 左侧：目录 + 返回按钮 */}
+        <aside className="w-64 shrink-0 pr-6 sticky top-20 self-start space-y-6">
+          <Link
+            href="/blog"
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full border hover:bg-muted transition"
+          >
+            ←
+          </Link>
+
+          <nav className="space-y-2 text-sm">
+            <h2 className="font-bold">目录</h2>
+            
+          </nav>
+        </aside>
+
+        {/* 右侧：文章内容 */}
+        <article className="flex-1 prose dark:prose-invert max-w-none">
+          <h1 id="post-title">{post.title}</h1>
+          <p className="text-muted-foreground text-sm">{post.description}</p>
+          <hr />
+          <Mdx code={post.body.code} />
+        </article>
+      </main>
+
   )
 }
