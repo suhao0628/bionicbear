@@ -69,8 +69,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-icons:
-        specifier: ^5.5.0
-        version: 5.5.0(react@18.2.0)
+        specifier: ^5.4.0
+        version: 5.4.0(react@18.2.0)
       tailwind-merge:
         specifier: ^3.3.0
         version: 3.3.0
@@ -2657,8 +2657,8 @@ packages:
     peerDependencies:
       react: ^18.2.0
 
-  react-icons@5.5.0:
-    resolution: {integrity: sha512-MEFcXdkP3dLo8uumGI5xN3lDFNsRtrjbOEKDLD7yv76v4wpnEq2Lt2qeHaQOr34I/wPN3s3+N08WkQ+CW37Xiw==}
+  react-icons@5.4.0:
+    resolution: {integrity: sha512-7eltJxgVt7X64oHh6wSWNwwbKTCtMfK35hcjvJS0yxEAhPM8oUKdS3+kqaW1vicIltw+kR2unHaa12S9pPALoQ==}
     peerDependencies:
       react: '*'
 
@@ -6249,7 +6249,7 @@ snapshots:
       react: 18.2.0
       scheduler: 0.23.2
 
-  react-icons@5.5.0(react@18.2.0):
+  react-icons@5.4.0(react@18.2.0):
     dependencies:
       react: 18.2.0
 
