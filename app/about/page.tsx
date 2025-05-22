@@ -128,7 +128,7 @@ const groups = [
         </h1>
         <div className="space-y-3">
             <p>
-              Hi 👋, I'm <strong className="text-sky-600 font-semibold">bionic bear</strong>
+              Hello World, I'm <strong className="text-sky-600 font-semibold">bionic bear</strong>
             </p>
             <p>
               A software engineering student graduate from TSU.
