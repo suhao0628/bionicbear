@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
 const projects = [
   {
@@ -14,18 +14,18 @@ const projects = [
   {
     title: "ThesisHub",
     description:
-      'A thesis management system designed to reflect real-world academic workflows—supporting topic selection, thesis progress tracking, approvals, and real-time communication.',
+      "A thesis management system designed to reflect real-world academic workflows—supporting topic selection, thesis progress tracking, approvals, and real-time communication.",
     image: "/thesis.png",
     href: "https://github.com/suhao0628",
   },
   {
     title: "Blogify",
     description:
-      'A clean, minimal blog for sharing ideas, projects, and personal insights—with a developer-friendly design and smooth reading experience.',
+      "A clean, minimal blog for sharing ideas, projects, and personal insights—with a developer-friendly design and smooth reading experience.",
     image: "/blog.jpg",
-    href: "https://github.com/suhao0628",
+    href: "https://github.com/suhao0628/bionicbear",
   },
-]
+];
 export default function ProjectPage() {
   return (
     <div className="grid md:grid-cols-2 gap-6 mt-10">
@@ -55,5 +55,5 @@ export default function ProjectPage() {
         </div>
       ))}
     </div>
-  )
+  );
 }

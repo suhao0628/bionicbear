@@ -1,31 +1,31 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [displayed, setDisplayed] = useState('')
-  const [textIndex, setTextIndex] = useState(0)
-  const [charIndex, setCharIndex] = useState(0)
+  const [displayed, setDisplayed] = useState("");
+  const [textIndex, setTextIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
-    const texts = ["世间无我 方见真我", "Flee as a bird to your mountain."]
-    const currentText = texts[textIndex]
+    const texts = ["世间无我 方见真我", "Flee as a bird to your mountain."];
+    const currentText = texts[textIndex];
 
     if (charIndex <= currentText.length) {
       const timeout = setTimeout(() => {
-        setDisplayed(currentText.slice(0, charIndex))
-        setCharIndex((prev) => prev + 1)
-      }, 150)
-      return () => clearTimeout(timeout)
+        setDisplayed(currentText.slice(0, charIndex));
+        setCharIndex((prev) => prev + 1);
+      }, 150);
+      return () => clearTimeout(timeout);
     } else {
       // pause before next loop
       const pause = setTimeout(() => {
-        setCharIndex(0)
-        setTextIndex((prev) => (prev + 1) % texts.length)
-      }, 2000)
-      return () => clearTimeout(pause)
+        setCharIndex(0);
+        setTextIndex((prev) => (prev + 1) % texts.length);
+      }, 2000);
+      return () => clearTimeout(pause);
     }
-  }, [charIndex, textIndex])
+  }, [charIndex, textIndex]);
 
   return (
     <div className="text-center py-20">
@@ -37,5 +37,5 @@ export default function Home() {
         This is the custom homepage. Check out the blog for more!
       </p>
     </div>
-  )
+  );
 }
