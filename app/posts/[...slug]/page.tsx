@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { Mdx } from "@/components/mdx-components";
 import { Toc } from "@/components/toc";
-
 interface PostProps {
   params: {
     slug: string[];
