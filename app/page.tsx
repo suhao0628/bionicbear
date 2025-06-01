@@ -34,7 +34,7 @@ export default function Home() {
         <span className="animate-pulse text-purple-500">|</span>
       </h1>
       <p className="text-lg text-muted-foreground">
-        /All but rebellion, all but ink and wine/
+        /* All but rebellion, all but ink and wine */
       </p>
     </div>
   );

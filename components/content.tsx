@@ -13,7 +13,6 @@ interface TocProps {
 }
 
 export function Toc({ headings, mobile = false }: TocProps) {
-  // 点击时设置高亮项
   useEffect(() => {
     const links = Array.from(
       document.querySelectorAll(".scrollspy-link")
