@@ -1,6 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files"
 import rehypeSlug from "rehype-slug"
-import rehypeAutolinkHeadings from "rehype-autolink-headings"
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -43,15 +42,6 @@ export default makeSource({
   mdx: {
     rehypePlugins: [
       rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: "wrap",
-          properties: {
-            className: ["anchor"],
-          },
-        },
-      ],
     ],
   },
 })

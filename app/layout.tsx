@@ -1,11 +1,12 @@
-import Link from "next/link";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@/components/analytics";
 import { ModeToggle } from "@/components/mode-toggle";
 import Navbar from "@/components/navbar";
-import ClickEffect from "@/components/ClickEffect";
+import ClickEffect from "@/components/click-effect";
+import { icons } from "lucide-react";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -19,6 +20,7 @@ export const metadata = {
 interface RootLayoutProps {
   children: React.ReactNode;
 }
+const GithubIcon = icons.Github;
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
@@ -31,38 +33,42 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
       </head>
       <body
-        className={`antialiased min-h-screen ${inter.variable} font-sans text-slate-900 dark:text-slate-50`}
+        className={`antialiased min-h-screen overscroll-y-none ${inter.variable} font-sans text-slate-900 dark:text-slate-50`}
       >
         <div className="fixed inset-0 -z-20 bg-grid" />
         <ClickEffect />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="relative flex flex-col items-center px-4 min-h-screen">
             <div className="w-full max-w-6xl bg-white dark:bg-slate-900/70 rounded-2xl shadow-xl ring-1 ring-black/5 backdrop-blur-lg p-4 sm:p-6 md:p-8 z-10 min-h-screen flex flex-col">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-2 relative w-full">
-                <div className="text-2xl sm:text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text text-center sm:text-left">
+              <div className="sm:hidden relative flex items-center justify-between mb-4 w-full">
+                <Navbar />
+                <div className="absolute left-1/2 -translate-x-1/2 text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
                   Blogify
                 </div>
-                <div className="absolute right-0 top-0 sm:hidden">
-                  <ModeToggle />
+                <ModeToggle />
+              </div>
+              <div className="hidden sm:flex items-center justify-between mb-6 w-full">
+                <div className="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+                  Blogify
                 </div>
                 <Navbar />
-                <div className="hidden sm:flex justify-end">
-                  <ModeToggle />
-                </div>
+                <ModeToggle />
               </div>
-
               <main className="flex-1">{children}</main>
-              <footer className="text-center text-sm text-muted-foreground">
-                © {new Date().getFullYear()} bionicbear. All rights reserved. |{" "}
-                <a
-                  href="https://github.com/suhao0628/bionicbear"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-purple-500 hover:underline"
-                >
-                  <i className="devicon-github-original" aria-hidden="true"></i>
-                  <span>View on GitHub</span>
-                </a>
+              <footer className="text-center text-sm text-muted-foreground mt-8">
+                <div className="inline-flex items-center gap-1 justify-center">
+                  <span>© {new Date().getFullYear()} bionicbear.</span>
+                  <span className="mx-2 text-gray-400">|</span>
+                  <a
+                    href="https://github.com/suhao0628/bionicbear"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-purple-500 hover:underline"
+                  >
+                    <GithubIcon className="w-4 h-4" />
+                    <span>View on GitHub</span>
+                  </a>
+                </div>
               </footer>
             </div>
           </div>

@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export default function BlogPage() {
   return (
-    <main className="flex justify-center px-4 pt-4 pb-20">
+    <main className="flex justify-center">
       <div className="w-full max-w-3xl">
-        <div className="prose dark:prose-invert prose-a:no-underline">
+        <div className="prose dark:prose-invert prose-a:no-underline max-w-none">
           {allPosts.map((post) => (
             <article key={post._id} className="mb-8">
-              <Link href={post.slug}>
-                <h2 className="mb-1 text-black dark:text-white no-underline hover:text-purple-600 transition-colors cursor-pointer">
+              <Link href={post.slug} className="group">
+                <h2 className="mb-1 text-black dark:text-white no-underline transition-colors cursor-pointer group-hover:text-purple-600">
                   {post.title}
                 </h2>
               </Link>

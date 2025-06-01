@@ -3,7 +3,7 @@ import { allPosts } from "contentlayer/generated";
 import Link from "next/link";
 import { Metadata } from "next";
 import { Mdx } from "@/components/mdx-components";
-import { Toc } from "@/components/Toc";
+import { Toc } from "@/components/toc";
 
 interface PostProps {
   params: {
@@ -105,12 +105,17 @@ export default async function PostPage({ params }: PostProps) {
 
           <Toc headings={headings} />
         </aside>
-
-        <article className="flex-1 prose dark:prose-invert max-w-none">
-          <h1 id="post-title">{post.title}</h1>
-          <p className="text-muted-foreground text-sm">{post.description}</p>
-          <hr />
-          <Mdx code={post.body.code} />
+        <article className="flex-1 max-w-none overflow-hidden">
+          <h1 id="post-title" className="text-3xl font-bold mb-2">
+            {post.title}
+          </h1>
+          <p className="text-muted-foreground text-sm mb-4">
+            {post.description}
+          </p>
+          <hr className="mb-6" />
+          <div className="prose dark:prose-invert max-w-none [&_a]:no-underline">
+            <Mdx code={post.body.code} />
+          </div>
         </article>
       </div>
     </main>
