@@ -2,48 +2,51 @@
 
 A clean and responsive personal blog powered by **Next.js** and **Tailwind CSS**.
 
-一个简洁、响应式的个人博客，使用 **Next.js** 和 **Tailwind CSS** 构建。
+[中文说明 »](./README.zh.md)
 
 ---
 
-## 🌐 Live Demo | 在线预览
+## Live Demo
 
-Hosted on Vercel: https://bionicbear.vercel.app/
+Hosted on Vercel: [https://bionicbear.vercel.app](https://bionicbear.vercel.app)
 
 ---
 
-## 🚀 Features | 功能特性
+## Features
 
 - Supports Markdown
-- 自动目录（TOC）和锚点跳转
-- 深色模式
-- 响应式设计（移动端 & 桌面端）
+- Automatic Table of Contents (TOC) and anchor links
+- Dark mode toggle
+- Responsive design (mobile & desktop)
+- Lazy loading for improved performance
 
 ---
 
-## 🛠 How to Start the Project | 启动项目
+## Getting Started
 
-1. Clone the repo | 克隆项目：
+1. **Clone the repo:**
 
 ```bash
 git clone https://github.com/suhao0628/bionicbear.git
 cd bionicbear
 ```
 
-2. Install dependencies | 安装依赖：
+2. **Install dependencies:**
 
 ```bash
 pnpm install
 ```
 
-3. Start the development server | 启动开发服务器：
+3. **Start the development server:**
 
 ```bash
 pnpm dev
 ```
 
-Access via: http://localhost:3000
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-Feel free to contribute or open an issue for suggestions!
+## Contributing
+
+Feel free to fork the repo, open issues, or submit pull requests.

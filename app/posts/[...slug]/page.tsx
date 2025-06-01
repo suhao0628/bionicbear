@@ -3,7 +3,7 @@ import { allPosts } from "contentlayer/generated";
 import Link from "next/link";
 import { Metadata } from "next";
 import { Mdx } from "@/components/mdx-components";
-import { Toc } from "@/components/toc";
+import { Toc } from "@/components/content";
 interface PostProps {
   params: {
     slug: string[];
